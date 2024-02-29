@@ -22,6 +22,8 @@ const startApp = async () => {
   const openAiSpecs = setupSwagger();
   app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openAiSpecs));
 
+  app.get("/", (_req, res) => res.send("Server is OK"));
+
   // route middleware
   app.use("/api/v1", translateRoute);
 
