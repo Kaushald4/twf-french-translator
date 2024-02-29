@@ -11,12 +11,12 @@ export const translateController = catchAsyncError(
       return res.status(400).json({
         success: false,
         message: errors.array()[0].msg,
-        missingField: errors.array()[0].path,
+        field: errors.array()[0].path,
       });
     }
 
     const { text } = req.body;
     const data = await translateToFrench(text);
-    res.status(200).json({ success: true, data: { value: data } });
+    res.status(200).json({ translation: data });
   }
 );

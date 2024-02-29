@@ -24,13 +24,8 @@ const router = express.Router();
  *              schema:
  *                  type: object
  *                  properties:
- *                      success:
- *                          type: boolean
- *                      data:
- *                          type: object
- *                          properties:
- *                            value:
- *                               type: string
+ *                      translation:
+ *                          type: string
  *         description: Returns a frech translation of given english sentence.
  *       400:
  *          content:
@@ -43,7 +38,7 @@ const router = express.Router();
  *                              default: false
  *                          message:
  *                              type: string
- *                          missingField:
+ *                          field:
  *                              type: string
  */
 router.post("/translate", translationValidation(), translateController);
